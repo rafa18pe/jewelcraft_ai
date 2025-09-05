@@ -118,7 +118,7 @@ class AppTheme {
       iconTheme: IconThemeData(color: textPrimaryLight),
       actionsIconTheme: IconThemeData(color: textPrimaryLight),
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardLight,
       elevation: 1.0, // Minimal elevation
       shadowColor: shadowLight,
@@ -278,7 +278,7 @@ class AppTheme {
       inactiveTrackColor: primaryLight.withValues(alpha: 0.3),
       trackHeight: 4.0,
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: primaryLight,
       unselectedLabelColor: textSecondaryLight,
       indicatorColor: primaryLight,
@@ -366,7 +366,7 @@ class AppTheme {
       iconTheme: IconThemeData(color: textPrimaryDark),
       actionsIconTheme: IconThemeData(color: textPrimaryDark),
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardDark,
       elevation: 1.0,
       shadowColor: shadowDark,
@@ -526,7 +526,7 @@ class AppTheme {
       inactiveTrackColor: primaryDark.withValues(alpha: 0.3),
       trackHeight: 4.0,
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: primaryDark,
       unselectedLabelColor: textSecondaryDark,
       indicatorColor: primaryDark,
