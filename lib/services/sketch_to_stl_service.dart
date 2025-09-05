@@ -6,7 +6,7 @@ import 'package:jewelcraft_ai/services/stl_obj_calculator.dart';
 import 'package:jewelcraft_ai/services/precio_calculator.dart';
 
 class SketchToStlService {
-  static const String _replicateKey = ''; // clave en .env o secrets
+  static final String _replicateKey = '';
 
   static Future<Uint8List> _enhanceImage(Uint8List rawPng) async {
     final dio = Dio();
