@@ -2,27 +2,35 @@ name: Build Android & iOS
 on:
   push:
     branches: [ main ]
+
 jobs:
   android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v3
-        with: { distribution: temurin, java-version: 17 }
-      - uses: subosito/flutter-action@v2
-        with: { flutter-version: 3.22.2 }
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Setup Flutter 3.35.2
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.2'
       - run: flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
         with:
           name: jewelcraft-android-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
   ios:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
-        with: { flutter-version: 3.22.2 }
+      - name: Setup Flutter 3.35.2
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.2'
       - run: flutter pub get
       - run: flutter build ipa --release --no-codesign
       - uses: actions/upload-artifact@v4
