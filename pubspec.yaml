@@ -33,7 +33,7 @@ dependencies:
   flutter_drawing_board: ^0.9.8
   image_picker: ^1.0.4
   file_picker: ^8.1.7
-  speech_to_text: ^6.6.1
+  speech_to_text: ^7.3.0
   flutter_dotenv: ^6.0.0
 
 dev_dependencies:
