@@ -16,10 +16,22 @@ Future<void> main() async {
     if (!_hasShownError) {
       _hasShownError = true;
       Future.delayed(const Duration(seconds: 5), () => _hasShownError = false);
-      return CustomErrorWidget(details: details);
+      return CustomErrorWidget();
     }
     return const SizedBox.shrink();
   };
 
   runApp(const MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'JewelCraft AI',
+      theme: ThemeData(useMaterial3: true),
+      home: const Placeholder(), // ← cambia luego por tu pantalla inicial
+    );
+  }
 }
