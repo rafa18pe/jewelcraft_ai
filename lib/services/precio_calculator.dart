@@ -4,7 +4,6 @@ import 'package:jewelcraft_ai/models/tipo_metal.dart';
 
 class PrecioCalculator {
   static Future<double> calculatePrice(double volumenCm3, TipoMetal metal) async {
-    // densidades en g/cm³
     final densidad = switch (metal) {
       TipoMetal.oro18k   => 15.6,
       TipoMetal.oro16k   => 14.9,
@@ -18,7 +17,6 @@ class PrecioCalculator {
 
     final pesoGramos = volumenCm3 * densidad;
 
-    // símbolo para la API
     final symbol = switch (metal) {
       TipoMetal.oro18k ||
       TipoMetal.oro16k ||
