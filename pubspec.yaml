@@ -29,7 +29,7 @@ dependencies:
   model_viewer_plus: ^1.5.0
   #  record: ^5.0.0
   permission_handler: ^11.1.0
-  audio_waveforms: ^0.1.5
+  #  audio_waveforms: ^0.1.5
   path_provider: ^2.1.2
   lottie: ^2.7.0
   universal_html: ^2.2.4
