@@ -1,13 +1,3 @@
-import 'package:jewelcraft_ai/presentation/preview/preview_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:jewelcraft_ai/services/ai_text_to_stl_service.dart';
-import 'package:jewelcraft_ai/services/precio_calculator.dart';
-import 'package:jewelcraft_ai/models/tipo_metal.dart';
-
-class AiTextToJewelryScreen extends StatefulWidget {
-  @override
-  State<AiTextToJewelryScreen> createState() => _AiTextToJewelryScreenState();
-}
 import 'package:flutter/material.dart';
 import 'package:jewelcraft_ai/models/tipo_metal.dart';
 import 'package:jewelcraft_ai/presentation/preview/preview_screen.dart';
@@ -50,10 +40,7 @@ class _AiTextToJewelryScreenState extends State<AiTextToJewelryScreen> {
             ElevatedButton(
               onPressed: () async {
                 final stlFile = await AiTextToStlService.textToSTL(_controller.text);
-                final price = await PrecioCalculator.calculatePrice(
-                  1.0, // ← aquí iría el volumen real
-                  _selectedMetal,
-                );
+                final price = await PrecioCalculator.calculatePrice(1.0, _selectedMetal);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
