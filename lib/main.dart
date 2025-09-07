@@ -1,37 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:sizer/sizer.dart';
+import 'package:jewelcraft_ai/presentation/ai_text_to_jewelry/ai_text_to_jewelry_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import '../core/app_export.dart';
-import '../widgets/custom_error_widget.dart';
-
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
-
-  bool _hasShownError = false;
-
-  ErrorWidget.builder = (FlutterErrorDetails details) {
-    if (!_hasShownError) {
-      _hasShownError = true;
-      Future.delayed(const Duration(seconds: 5), () => _hasShownError = false);
-      return CustomErrorWidget();
-    }
-    return const SizedBox.shrink();
-  };
-
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'JewelCraft AI',
-      theme: ThemeData(useMaterial3: true),
-      home: const Placeholder(), // ← cambia luego por tu pantalla inicial
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'JewelCraft AI',
+              style: TextStyle(fontSize: 32, color: Colors.white),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const AiTextToJewelryScreen(),
+                  ),
+                );
+              },
+              child: const Text('Texto → Joya'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
