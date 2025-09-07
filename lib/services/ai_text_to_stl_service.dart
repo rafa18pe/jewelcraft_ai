@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:jewelcraft_ai/services/stl_obj_calculator.dart';
 import 'package:jewelcraft_ai/services/precio_calculator.dart';
+import 'package:jewelcraft_ai/models/tipo_metal.dart';
 
 class AiTextToStlService {
   static final Map<String, dynamic> _keys = jsonDecode(

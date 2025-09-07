@@ -16,6 +16,7 @@ class PrecioCalculator {
       TipoMetal.oro8k    => 10.4,
       TipoMetal.plata975 => 10.2,
       TipoMetal.plata950 => 10.1,
+      TipoMetal.plata    => 10.0,
     };
 
     final pesoGramos = volumenCm3 * densidad;
@@ -29,6 +30,7 @@ class PrecioCalculator {
       TipoMetal.oro8k   => 'XAU',
       TipoMetal.plata975 ||
       TipoMetal.plata950 => 'XAG',
+      TipoMetal.plata    => 'XAG',
     };
 
     final dio = Dio();

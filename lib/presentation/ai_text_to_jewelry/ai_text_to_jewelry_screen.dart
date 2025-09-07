@@ -8,6 +8,16 @@ class AiTextToJewelryScreen extends StatefulWidget {
   @override
   State<AiTextToJewelryScreen> createState() => _AiTextToJewelryScreenState();
 }
+import 'package:flutter/material.dart';
+import 'package:jewelcraft_ai/models/tipo_metal.dart';
+import 'package:jewelcraft_ai/presentation/preview/preview_screen.dart';
+import 'package:jewelcraft_ai/services/ai_text_to_stl_service.dart';
+import 'package:jewelcraft_ai/services/precio_calculator.dart';
+
+class AiTextToJewelryScreen extends StatefulWidget {
+  @override
+  State<AiTextToJewelryScreen> createState() => _AiTextToJewelryScreenState();
+}
 
 class _AiTextToJewelryScreenState extends State<AiTextToJewelryScreen> {
   final _controller = TextEditingController();
@@ -34,21 +44,24 @@ class _AiTextToJewelryScreenState extends State<AiTextToJewelryScreen> {
                   child: Text(m.name.toUpperCase()),
                 );
               }).toList(),
-              onChanged: (m) => setState(() => _selectedMetal = m!,
+              onChanged: (m) => setState(() => _selectedMetal = m!),
             ),
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () async {
-                final (stlFile, price) = await AiTextToStlService.textToJewelry(
-                  _controller.text,
-               final (stlFile, price) = await AiTextToStlService.textToJewelry(
-                  _controller.text,
+                final stlFile = await AiTextToStlService.textToSTL(_controller.text);
+                final price = await PrecioCalculator.calculatePrice(
+                  1.0, // ← aquí iría el volumen real
                   _selectedMetal,
-);                );
+                );
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => PreviewScreen(stlFile: stlFile.path, priceEUR: price, metal: _selectedMetal,),
+                    builder: (_) => PreviewScreen(
+                      stlFile: stlFile.path,
+                      priceEUR: price,
+                      metal: _selectedMetal,
+                    ),
                   ),
                 );
               },
