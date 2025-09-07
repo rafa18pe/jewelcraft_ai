@@ -1,13 +1,10 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:dio/dio.dart';
-import 'dart:typed_data';
 import 'package:jewelcraft_ai/core/api_keys.dart';
 import 'package:jewelcraft_ai/models/tipo_metal.dart';
 
 class PrecioCalculator {
   static Future<double> calculatePrice(double volumenCm3, TipoMetal metal) async {
-    // densidad según el metal
+    // densidades en g/cm³
     final densidad = switch (metal) {
       TipoMetal.oro18k   => 15.6,
       TipoMetal.oro16k   => 14.9,
@@ -29,7 +26,7 @@ class PrecioCalculator {
       TipoMetal.oro10k ||
       TipoMetal.oro8k   => 'XAU',
       TipoMetal.plata975 ||
-      TipoMetal.plata950 => 'XAG',
+      TipoMetal.plata950 ||
       TipoMetal.plata    => 'XAG',
     };
 
