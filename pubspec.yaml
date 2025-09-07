@@ -1,4 +1,4 @@
-name: jewelcraft_ai
+wname: jewelcraft_ai
 description: A new Flutter project.
 publish_to: none
 version: 1.0.0+1
@@ -31,7 +31,7 @@ dependencies:
   permission_handler: ^11.1.0
   audio_waveforms: ^1.3.0
   path_provider: ^2.1.2
-  lottie: ^3.3.1
+  lottie: ^2.7.0
   universal_html: ^2.2.4
   flutter_drawing_board: ^0.9.8
   image_picker: ^1.0.4
