@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => const AiTextToJewelryScreen(),
+                    builder: (_) => AiTextToJewelryScreen(),
                   ),
                 );
               },
