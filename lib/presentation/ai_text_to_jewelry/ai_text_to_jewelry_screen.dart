@@ -29,7 +29,7 @@ class AiTextToJewelryScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => PreviewScreen(stlFile: stlFile, priceEUR: price, metal: TipoMetal.oro18k),
+                    builder: (_) => PreviewScreen(stlFile: stlFile.path, priceEUR: price, metal: TipoMetal.oro18k),
                   ),
                 );
               },
