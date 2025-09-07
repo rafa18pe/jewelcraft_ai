@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'dart:typed_data';
+import 'package:jewelcraft_ai/core/api_keys.dart';
 
 enum TipoMetal { oro18k, oro24k, plata950 }
 
@@ -15,9 +16,7 @@ class PrecioCalculator {
     final pesoGramos = volumenCm3 * densidad;
     final dio = Dio();
     final response = await dio.get(
-      'https://api.alltick.co/quote?symbol=${metal == TipoMetal.oro18k ? 'XAU' : 'XAG'}-EUR&api_token=${dotenv.env['ALLTICK_API_KEY']}',
-    );
-    final precioEURPorGramo = double.parse(response.data['price'].toString()) / 31.1035;
+    'https://api.alltick.co/quote?symbol=${metal == TipoMetal.oro18k ? 'XAU' : 'XAG'}-EUR&api_token=${await ApiKeys.alltick}'    final precioEURPorGramo = double.parse(response.data['price'].toString()) / 31.1035;
     return pesoGramos * precioEURPorGramo;
   }
 }
