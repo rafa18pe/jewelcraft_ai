@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:jewelcraft_ai/models/tipo_metal.dart';
 import 'package:jewelcraft_ai/presentation/preview/preview_screen.dart';
@@ -37,6 +39,24 @@ class _AiTextToJewelryScreenState extends State<AiTextToJewelryScreen> {
               onChanged: (m) => setState(() => _selectedMetal = m!),
             ),
             const SizedBox(height: 24),
+            const SizedBox(height: 12),
+ElevatedButton(
+  onPressed: () async {
+    final dir = await getApplicationDocumentsDirectory();
+    final logFile = File('${dir.path}/jewelcraft_log.txt');
+    String content = '';
+    if (await logFile.exists()) {
+      content = await logFile.readAsString();
+    } else {
+      content = 'Log no encontrado';
+    }
+    // Mostrar en pantalla
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(content.length > 200 ? '${content.substring(0, 200)}...' : content)),
+    );
+  },
+  child: const Text('Ver log'),
+),
             ElevatedButton(
               onPressed: () async {
                 final stlFile = await AiTextToStlService.textToSTL(_controller.text);
