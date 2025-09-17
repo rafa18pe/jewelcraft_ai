@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<String> _createLog() async {
   final dir = await getApplicationDocumentsDirectory();
-  final logFile = File('${dir.path}/jewelcraft_final.txt');
+  final logFile = File('${dir.path}/jewelcraft_mem.txt');
   try {
     logFile.writeAsStringSync('=== INICIO MAIN ===\n');
     // Intentamos leer env.json
@@ -18,13 +17,24 @@ void main() async {
       logFile.writeAsStringSync('env.json NO existe\n', mode: FileMode.append);
     }
     logFile.writeAsStringSync('=== FIN MAIN ===\n', mode: FileMode.append);
+    return 'Log creado sin errores';
   } catch (e) {
     logFile.writeAsStringSync('ERROR: $e\n', mode: FileMode.append);
+    return 'ERROR: $e';
   }
-    runApp(BlankApp());
 }
 
-class BlankApp extends StatelessWidget {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final msg = await _createLog();
+  runApp(PlainApp(msg: msg));
+}
+
+class PlainApp extends StatelessWidget {
+  final String msg;
+
+  const PlainApp({super.key, required this.msg});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +42,7 @@ class BlankApp extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: Text(
-            'Log creado. Lee jewelfinal_diag.txt',
+            msg,
             style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
         ),
