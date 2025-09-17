@@ -1,3 +1,4 @@
+import 'package:share_plus/share_plus.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -51,18 +52,19 @@ class LogApp extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               ElevatedButton(
-                onPressed: () async {
-                  final dir = await getApplicationDocumentsDirectory();
-                  final logFile = File('${dir.path}/jewelcraft_diag.txt');
-                  String text = 'No hay log';
-                  if (await logFile.exists()) {
-                    text = await logFile.readAsString();
-                  }
-                  // Mostrar en pantalla
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(text.length > 200 ? '${text.substring(0, 200)}...' : text)),
-                  );
-                },
+                              onPressed: () async {
+                final dir = await getApplicationDocumentsDirectory();
+                final logFile = File('${dir.path}/jewelcraft_diag.txt');
+                String text = 'No hay log';
+                if (await logFile.exists()) {
+                  text = await logFile.readAsString();
+                }
+                // Compartir por WhatsApp
+                Share.share(
+                  'Diagnóstico JewelCraft:\n$text',
+                  subject: 'Log de la app',
+                );
+              },
                 child: const Text('Ver log en pantalla'),
               ),
             ],
