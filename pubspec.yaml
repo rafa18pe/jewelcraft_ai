@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  share_plus: ^7.2.1
+  
   # Utilidades
   flutter_dotenv: ^5.1.0   # ← una sola vez y bien indentado
 
