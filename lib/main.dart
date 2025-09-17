@@ -1,32 +1,39 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
 
-Future<Map<String, dynamic>> _loadEnv() async {
+Future<String> _createLog() async {
   final dir = await getApplicationDocumentsDirectory();
-  final envFile = File('${dir.path}/env.json');
-  if (!await envFile.exists()) {
-    // Copiar env.json desde assets
-    final data = await rootBundle.loadString('assets/env.json');
-    await envFile.writeAsString(data);
+  final logFile = File('${dir.path}/jewelcraft_diag.txt');
+  try {
+    logFile.writeAsStringSync('=== INICIO MAIN ===\n');
+    // Intentamos leer env.json
+    final envFile = File('${dir.path}/env.json');
+    if (await envFile.exists()) {
+      final content = await envFile.readAsString();
+      logFile.writeAsStringSync('env.json existe: ${content.length} chars\n', mode: FileMode.append);
+    } else {
+      logFile.writeAsStringSync('env.json NO existe\n', mode: FileMode.append);
+    }
+    logFile.writeAsStringSync('=== FIN MAIN ===\n', mode: FileMode.append);
+    return 'Log creado sin errores';
+  } catch (e) {
+    logFile.writeAsStringSync('ERROR: $e\n', mode: FileMode.append);
+    return 'ERROR: $e';
   }
-  final raw = await envFile.readAsString();
-  return jsonDecode(raw);
 }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final env = await _loadEnv();
-  runApp(DiagApp(env: env));
+  final msg = await _createLog();
+  runApp(LogApp(msg: msg));
 }
 
-class DiagApp extends StatelessWidget {
-  final Map<String, dynamic> env;
+class LogApp extends StatelessWidget {
+  final String msg;
 
-  const DiagApp({super.key, required this.env});
+  const LogApp({super.key, required this.msg});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +41,31 @@ class DiagApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              final text = 'ENV cargado:\n'
-                  'GEMINI: ${env['GEMINI_API_KEY']?.substring(0, 5)}...\n'
-                  'ALLTICK: ${env['ALLTICK_API_KEY']?.substring(0, 5)}...\n'
-                  'MESHY: ${env['MESHY_API_KEY']?.substring(0, 5)}...';
-              Share.share(text);
-            },
-            child: const Text('Compartir ENV'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                msg,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () async {
+                  final dir = await getApplicationDocumentsDirectory();
+                  final logFile = File('${dir.path}/jewelcraft_diag.txt');
+                  String text = 'No hay log';
+                  if (await logFile.exists()) {
+                    text = await logFile.readAsString();
+                  }
+                  // Mostrar en pantalla
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(text.length > 200 ? '${text.substring(0, 200)}...' : text)),
+                  );
+                },
+                child: const Text('Ver log en pantalla'),
+              ),
+            ],
           ),
         ),
       ),
