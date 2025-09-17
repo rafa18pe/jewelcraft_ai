@@ -25,9 +25,8 @@ jobs:
         run: |
           echo "ALLTICK_API_KEY=${{ secrets.ALLTICK_API_KEY }}" > .env
           echo "REPLICATE_API_TOKEN=${{ secrets.REPLICATE_API_TOKEN }}" >> .env
-          echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
+          echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env    
           echo "TRIPO3D_API_KEY=${{ secrets.TRIPO3D_API_KEY }}" >> .env
-
       - name: Construir APK
         run: flutter build apk --release
 
