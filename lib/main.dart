@@ -1,6 +1,7 @@
-import 'dart:io';
+ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +43,6 @@ class DiagApp extends StatelessWidget {
               if (await logFile.exists()) {
                 text = await logFile.readAsString();
               }
-              // Compartir por WhatsApp
               Share.share('Diagnóstico:\n$text');
             },
             child: const Text('Compartir diagnóstico'),
@@ -52,3 +52,4 @@ class DiagApp extends StatelessWidget {
     );
   }
 }
+
