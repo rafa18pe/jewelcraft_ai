@@ -1,14 +1,14 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 Future<Map<String, dynamic>> _loadEnv() async {
   final dir = await getApplicationDocumentsDirectory();
   final envFile = File('${dir.path}/env.json');
   if (!await envFile.exists()) {
     // Copiar env.json desde assets si no existe
-    final data = await DefaultAssetBundle.of(rootNavigatorKey.currentContext!).loadString('lib/env.json');
+    final data = await rootBundle.loadString('assets/env.json');
     await envFile.writeAsString(data);
   }
   final raw = await envFile.readAsString();
@@ -18,7 +18,7 @@ Future<Map<String, dynamic>> _loadEnv() async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final env = await _loadEnv();
-  runApp(const DiagApp(env: env));
+  runApp(DiagApp(env: env));
 }
 
 class DiagApp extends StatelessWidget {
