@@ -21,7 +21,7 @@ void main() async {
   } catch (e) {
     logFile.writeAsStringSync('ERROR: $e\n', mode: FileMode.append);
   }
-  runApp(const BlankApp());
+    runApp(BlankApp());
 }
 
 class BlankApp extends StatelessWidget {
