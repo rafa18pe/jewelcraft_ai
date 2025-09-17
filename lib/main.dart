@@ -1,33 +1,30 @@
- import 'dart:io';
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
+
+Future<Map<String, dynamic>> _loadEnv() async {
+  final dir = await getApplicationDocumentsDirectory();
+  final envFile = File('${dir.path}/env.json');
+  if (!await envFile.exists()) {
+    // Copiar env.json desde assets si no existe
+    final data = await DefaultAssetBundle.of(rootNavigatorKey.currentContext!).loadString('lib/env.json');
+    await envFile.writeAsString(data);
+  }
+  final raw = await envFile.readAsString();
+  return jsonDecode(raw);
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final dir = await getApplicationDocumentsDirectory();
-  final logFile = File('${dir.path}/jewelcraft_diag.txt');
-  try {
-    logFile.writeAsStringSync('=== INICIO MAIN ===\n');
-    logFile.writeAsStringSync('dir: ${dir.path}\n', mode: FileMode.append);
-    // Intentamos leer keys.json
-    final keysFile = File('${dir.path}/keys.json');
-    if (await keysFile.exists()) {
-      final content = await keysFile.readAsString();
-      logFile.writeAsStringSync('keys.json existe: ${content.length} chars\n', mode: FileMode.append);
-    } else {
-      logFile.writeAsStringSync('keys.json NO existe\n', mode: FileMode.append);
-    }
-    logFile.writeAsStringSync('=== FIN MAIN ===\n', mode: FileMode.append);
-  } catch (e) {
-    logFile.writeAsStringSync('ERROR MAIN: $e\n', mode: FileMode.append);
-  }
-
-  runApp(const DiagApp());
+  final env = await _loadEnv();
+  runApp(const DiagApp(env: env));
 }
 
 class DiagApp extends StatelessWidget {
-  const DiagApp({super.key});
+  final Map<String, dynamic> env;
+
+  const DiagApp({super.key, required this.env});
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +34,16 @@ class DiagApp extends StatelessWidget {
         body: Center(
           child: ElevatedButton(
             onPressed: () async {
-              final dir = await getApplicationDocumentsDirectory();
-              final logFile = File('${dir.path}/jewelcraft_diag.txt');
-              String text = 'No hay log';
-              if (await logFile.exists()) {
-                text = await logFile.readAsString();
-              }
-              Share.share('Diagnóstico:\n$text');
+              final text = 'ENV cargado:\n'
+                  'GEMINI: ${env['GEMINI_API_KEY']?.substring(0, 5)}...\n'
+                  'ALLTICK: ${env['ALLTICK_API_KEY']?.substring(0, 5)}...\n'
+                  'MESHY: ${env['MESHY_API_KEY']?.substring(0, 5)}...';
+              Share.share(text);
             },
-            child: const Text('Compartir diagnóstico'),
+            child: const Text('Compartir ENV'),
           ),
         ),
       ),
     );
   }
 }
-
