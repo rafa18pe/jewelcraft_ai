@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 
 Future<String> _createLog() async {
   final dir = await getApplicationDocumentsDirectory();
-  final logFile = File('${dir.path}/jewelcraft_mem.txt');
+  final logFile = File('${dir.path}/jewelcraft_ram.txt');
   try {
     logFile.writeAsStringSync('=== INICIO MAIN ===\n');
     // Intentamos leer env.json
