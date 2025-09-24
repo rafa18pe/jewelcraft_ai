@@ -19,17 +19,20 @@ Future<void> _appendLog(String message) async {
   } catch (_) {}
 }
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   FlutterError.onError = (FlutterErrorDetails details) async {
     Zone.current.handleUncaughtError(details.exception, details.stack ?? StackTrace.current);
   };
 
-  await _appendLog('App starting');
-
-  runZonedGuarded<Future<void>>(() async {
+  runZonedGuarded<void>(() {
     runApp(const JewelcraftApp());
+
+    // Defer any non-critical I/O until after first frame to avoid delaying UI.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _appendLog('App started');
+    });
   }, (Object error, StackTrace stack) async {
     await _appendLog('Uncaught error: $error\n$stack');
   });
