@@ -5,6 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'core/app_export.dart';
+import 'widgets/custom_error_widget.dart';
 
 Future<File> _getLogFile() async {
   final dir = await getApplicationDocumentsDirectory();
