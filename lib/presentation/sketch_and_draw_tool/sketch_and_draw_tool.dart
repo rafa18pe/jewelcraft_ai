@@ -11,7 +11,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sizer/sizer.dart';
-import 'package:universal_html/html.dart' as html;
+import 'package:universal_html/html.dart' as html
+    if (dart.library.io) 'package:jewelcraft_ai/web/html_stub.dart' as html;
 
 import '../../core/app_export.dart';
 import '../../theme/app_theme.dart';
