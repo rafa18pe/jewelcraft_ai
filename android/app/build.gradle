@@ -8,7 +8,8 @@ plugins {
 android {
     namespace = "com.jewelcraft_ai.app"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // Pin NDK to match plugins required version in CI
+    ndkVersion = "26.1.10909125"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -29,7 +30,6 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled true
-        minSdkVersion flutter.minSdkVersion
     }
 
     buildTypes {

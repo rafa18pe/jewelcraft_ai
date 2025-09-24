@@ -67,11 +67,11 @@ class _NoiseIndicatorWidgetState extends State<NoiseIndicatorWidget>
             padding: EdgeInsets.all(3.w),
             decoration: BoxDecoration(
               color:
-                  AppTheme.lightTheme.colorScheme.error.withValues(alpha: 0.1),
+                  AppTheme.lightTheme.colorScheme.error.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: AppTheme.lightTheme.colorScheme.error
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
                 width: 1,
               ),
             ),

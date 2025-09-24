@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:universal_html/html.dart' as html
+import 'package:universal_html/html.dart'
     if (dart.library.io) 'package:jewelcraft_ai/web/html_stub.dart' as html;
 
 import '../../core/app_export.dart';
@@ -410,7 +410,7 @@ endsolid ${_jewelryModel['name']}''';
               end: Alignment.bottomCenter,
               colors: [
                 Colors.transparent,
-                Colors.black.withValues(alpha: 0.8),
+                Colors.black.withOpacity(0.8),
               ],
             ),
           ),

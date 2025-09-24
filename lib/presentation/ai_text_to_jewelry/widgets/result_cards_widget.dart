@@ -52,7 +52,7 @@ class ResultCardsWidget extends StatelessWidget {
                       borderRadius:
                           const BorderRadius.vertical(top: Radius.circular(16)),
                       color: AppTheme.lightTheme.colorScheme.outline
-                          .withValues(alpha: 0.1),
+                          .withOpacity(0.1),
                     ),
                     child: ClipRRect(
                       borderRadius:
@@ -138,7 +138,7 @@ class ResultCardsWidget extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           color: AppTheme
                                               .lightTheme.colorScheme.primary
-                                              .withValues(alpha: 0.1),
+                                              .withOpacity(0.1),
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
@@ -185,7 +185,7 @@ class ResultCardsWidget extends StatelessWidget {
                               Container(
                                 decoration: BoxDecoration(
                                   color: AppTheme.lightTheme.colorScheme.primary
-                                      .withValues(alpha: 0.1),
+                                      .withOpacity(0.1),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: IconButton(

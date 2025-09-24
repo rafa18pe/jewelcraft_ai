@@ -59,7 +59,7 @@ class _ExportOptionsWidgetState extends State<ExportOptionsWidget> {
               border: Border(
                 bottom: BorderSide(
                   color: AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
                 ),
               ),
             ),
@@ -106,7 +106,7 @@ class _ExportOptionsWidgetState extends State<ExportOptionsWidget> {
                           decoration: BoxDecoration(
                             color: isSelected
                                 ? AppTheme.lightTheme.primaryColor
-                                    .withValues(alpha: 0.2)
+                                    .withOpacity(0.2)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
@@ -154,14 +154,14 @@ class _ExportOptionsWidgetState extends State<ExportOptionsWidget> {
                             decoration: BoxDecoration(
                               color: isSelected
                                   ? AppTheme.lightTheme.primaryColor
-                                      .withValues(alpha: 0.1)
+                                      .withOpacity(0.1)
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: isSelected
                                     ? AppTheme.lightTheme.primaryColor
                                     : AppTheme.lightTheme.colorScheme.outline
-                                        .withValues(alpha: 0.3),
+                                        .withOpacity(0.3),
                               ),
                             ),
                             child: Row(
@@ -175,7 +175,7 @@ class _ExportOptionsWidgetState extends State<ExportOptionsWidget> {
                                       ? AppTheme.lightTheme.primaryColor
                                       : AppTheme
                                           .lightTheme.colorScheme.onSurface
-                                          .withValues(alpha: 0.5),
+                                          .withOpacity(0.5),
                                 ),
                                 SizedBox(width: 3.w),
                                 Text(
@@ -256,14 +256,14 @@ class _ExportOptionsWidgetState extends State<ExportOptionsWidget> {
         margin: EdgeInsets.only(bottom: 2.h),
         decoration: BoxDecoration(
           color: isHighlighted
-              ? AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1)
+              ? AppTheme.lightTheme.primaryColor.withOpacity(0.1)
               : AppTheme.lightTheme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: isHighlighted
                 ? AppTheme.lightTheme.primaryColor
                 : AppTheme.lightTheme.colorScheme.outline
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
           ),
           boxShadow: [
             BoxShadow(
@@ -320,7 +320,7 @@ class _ExportOptionsWidgetState extends State<ExportOptionsWidget> {
               iconName: 'arrow_forward_ios',
               size: 16,
               color: AppTheme.lightTheme.colorScheme.onSurface
-                  .withValues(alpha: 0.5),
+                  .withOpacity(0.5),
             ),
           ],
         ),

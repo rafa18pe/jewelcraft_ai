@@ -503,7 +503,7 @@ class _DesignGalleryState extends State<DesignGallery>
                   color: (isDarkMode
                           ? AppTheme.primaryDark
                           : AppTheme.primaryLight)
-                      .withValues(alpha: 0.1),
+                      .withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     color: isDarkMode

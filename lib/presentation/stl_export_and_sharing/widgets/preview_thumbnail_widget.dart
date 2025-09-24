@@ -38,7 +38,7 @@ class PreviewThumbnailWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color: AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
                 ),
               ),
               child: previewImageUrl != null
@@ -60,7 +60,7 @@ class PreviewThumbnailWidget extends StatelessWidget {
                                 end: Alignment.bottomCenter,
                                 colors: [
                                   Colors.transparent,
-                                  Colors.black.withValues(alpha: 0.3),
+                                  Colors.black.withOpacity(0.3),
                                 ],
                               ),
                             ),
@@ -74,7 +74,7 @@ class PreviewThumbnailWidget extends StatelessWidget {
                                 vertical: 1.h,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: 0.7),
+                                color: Colors.black.withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Row(

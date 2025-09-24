@@ -35,7 +35,7 @@ class EmptyStateWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color:
                     (isDarkMode ? AppTheme.primaryDark : AppTheme.primaryLight)
-                        .withValues(alpha: 0.1),
+                        .withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: Center(

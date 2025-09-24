@@ -80,14 +80,14 @@ class QualitySelectorWidget extends StatelessWidget {
           padding: EdgeInsets.all(3.w),
           decoration: BoxDecoration(
             color: isSelected
-                ? AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1)
+                ? AppTheme.lightTheme.primaryColor.withOpacity(0.1)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: isSelected
                   ? AppTheme.lightTheme.primaryColor
                   : AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
               width: isSelected ? 2 : 1,
             ),
           ),
@@ -99,7 +99,7 @@ class QualitySelectorWidget extends StatelessWidget {
                   color: isSelected
                       ? AppTheme.lightTheme.primaryColor
                       : AppTheme.lightTheme.colorScheme.outline
-                          .withValues(alpha: 0.2),
+                          .withOpacity(0.2),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: CustomIconWidget(

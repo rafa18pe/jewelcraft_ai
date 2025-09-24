@@ -130,8 +130,8 @@ class _VoiceInputWidgetState extends State<VoiceInputWidget> {
         height: 6.h,
         decoration: BoxDecoration(
           color: _isRecording
-              ? AppTheme.lightTheme.colorScheme.error.withValues(alpha: 0.1)
-              : AppTheme.lightTheme.colorScheme.primary.withValues(alpha: 0.1),
+              ? AppTheme.lightTheme.colorScheme.error.withOpacity(0.1)
+              : AppTheme.lightTheme.colorScheme.primary.withOpacity(0.1),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: _isRecording
@@ -168,7 +168,7 @@ class _VoiceInputWidgetState extends State<VoiceInputWidget> {
                         height: 0.5.h,
                         child: LinearProgressIndicator(
                           backgroundColor: AppTheme.lightTheme.colorScheme.error
-                              .withValues(alpha: 0.3),
+                              .withOpacity(0.3),
                           valueColor: AlwaysStoppedAnimation<Color>(
                             AppTheme.lightTheme.colorScheme.error,
                           ),

@@ -24,7 +24,7 @@ class ExportHistoryWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color:
-                AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+                AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
           ),
         ),
         child: Column(
@@ -82,7 +82,7 @@ class ExportHistoryWidget extends StatelessWidget {
         color: AppTheme.lightTheme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+          color: AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
         ),
       ),
       child: Column(
@@ -94,7 +94,7 @@ class ExportHistoryWidget extends StatelessWidget {
                 padding: EdgeInsets.all(2.w),
                 decoration: BoxDecoration(
                   color:
-                      AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1),
+                      AppTheme.lightTheme.primaryColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: CustomIconWidget(
@@ -161,7 +161,7 @@ class ExportHistoryWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       decoration: BoxDecoration(
         color: AppTheme.lightTheme.colorScheme.surfaceContainerHighest
-            .withValues(alpha: 0.5),
+            .withOpacity(0.5),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(

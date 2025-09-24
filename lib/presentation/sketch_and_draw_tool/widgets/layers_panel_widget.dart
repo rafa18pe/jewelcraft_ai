@@ -54,7 +54,7 @@ class _LayersPanelWidgetState extends State<LayersPanelWidget> {
               border: Border(
                 bottom: BorderSide(
                   color: AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
                 ),
               ),
             ),
@@ -106,14 +106,14 @@ class _LayersPanelWidgetState extends State<LayersPanelWidget> {
                   decoration: BoxDecoration(
                     color: isSelected
                         ? AppTheme.lightTheme.primaryColor
-                            .withValues(alpha: 0.1)
+                            .withOpacity(0.1)
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
                       color: isSelected
                           ? AppTheme.lightTheme.primaryColor
                           : AppTheme.lightTheme.colorScheme.outline
-                              .withValues(alpha: 0.3),
+                              .withOpacity(0.3),
                     ),
                   ),
                   child: ListTile(
@@ -127,7 +127,7 @@ class _LayersPanelWidgetState extends State<LayersPanelWidget> {
                         color: layer.isVisible
                             ? AppTheme.lightTheme.colorScheme.onSurface
                             : AppTheme.lightTheme.colorScheme.onSurface
-                                .withValues(alpha: 0.5),
+                                .withOpacity(0.5),
                       ),
                     ),
                     title: Text(
@@ -169,7 +169,7 @@ class _LayersPanelWidgetState extends State<LayersPanelWidget> {
                             iconName: 'drag_handle',
                             size: 20,
                             color: AppTheme.lightTheme.colorScheme.onSurface
-                                .withValues(alpha: 0.5),
+                                .withOpacity(0.5),
                           ),
                   ),
                 );

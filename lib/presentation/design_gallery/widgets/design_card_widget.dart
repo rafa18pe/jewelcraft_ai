@@ -114,10 +114,10 @@ class DesignCardWidget extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: 2.w, vertical: 0.5.h),
                         decoration: BoxDecoration(
-                          color: badgeColor.withValues(alpha: 0.1),
+                          color: badgeColor.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: badgeColor.withValues(alpha: 0.3),
+                            color: badgeColor.withOpacity(0.3),
                             width: 1,
                           ),
                         ),

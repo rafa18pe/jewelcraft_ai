@@ -22,7 +22,7 @@ class QrCodeWidget extends StatelessWidget {
         color: AppTheme.lightTheme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+          color: AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
         ),
       ),
       child: Column(
@@ -53,7 +53,7 @@ class QrCodeWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: AppTheme.lightTheme.colorScheme.outline
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
               ),
             ),
             child: Column(
@@ -102,7 +102,7 @@ class QrCodeWidget extends StatelessWidget {
             padding: EdgeInsets.all(3.w),
             decoration: BoxDecoration(
               color: AppTheme.lightTheme.colorScheme.surfaceContainerHighest
-                  .withValues(alpha: 0.5),
+                  .withOpacity(0.5),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(

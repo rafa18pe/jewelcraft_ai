@@ -24,11 +24,11 @@ class LightingControlsWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
-        color: AppTheme.lightTheme.colorScheme.surface.withValues(alpha: 0.9),
+        color: AppTheme.lightTheme.colorScheme.surface.withOpacity(0.9),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -59,13 +59,13 @@ class LightingControlsWidget extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: isSelected
                           ? AppTheme.lightTheme.primaryColor
-                              .withValues(alpha: 0.2)
+                              .withOpacity(0.2)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
                         color: isSelected
                             ? AppTheme.lightTheme.primaryColor
-                            : Colors.grey.withValues(alpha: 0.3),
+                            : Colors.grey.withOpacity(0.3),
                         width: 1,
                       ),
                     ),

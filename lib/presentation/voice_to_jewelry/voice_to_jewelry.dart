@@ -342,11 +342,11 @@ class _VoiceToJewelryState extends State<VoiceToJewelry>
                 padding: EdgeInsets.all(4.w),
                 decoration: BoxDecoration(
                   color: AppTheme.lightTheme.colorScheme.primaryContainer
-                      .withValues(alpha: 0.1),
+                      .withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     color: AppTheme.lightTheme.colorScheme.primary
-                        .withValues(alpha: 0.2),
+                        .withOpacity(0.2),
                     width: 1,
                   ),
                 ),
@@ -482,7 +482,7 @@ class _VoiceToJewelryState extends State<VoiceToJewelry>
                   boxShadow: [
                     BoxShadow(
                       color: AppTheme.lightTheme.colorScheme.shadow
-                          .withValues(alpha: 0.1),
+                          .withOpacity(0.1),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -542,11 +542,11 @@ class _VoiceToJewelryState extends State<VoiceToJewelry>
         padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
         decoration: BoxDecoration(
           color: AppTheme.lightTheme.colorScheme.primaryContainer
-              .withValues(alpha: 0.1),
+              .withOpacity(0.1),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color:
-                AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+                AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
             width: 1,
           ),
         ),

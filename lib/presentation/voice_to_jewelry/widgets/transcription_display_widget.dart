@@ -60,13 +60,13 @@ class _TranscriptionDisplayWidgetState
         color: AppTheme.lightTheme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+          color: AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
             color:
-                AppTheme.lightTheme.colorScheme.shadow.withValues(alpha: 0.1),
+                AppTheme.lightTheme.colorScheme.shadow.withOpacity(0.1),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -114,7 +114,7 @@ class _TranscriptionDisplayWidgetState
                       hintStyle:
                           AppTheme.lightTheme.textTheme.bodyMedium?.copyWith(
                         color: AppTheme.lightTheme.colorScheme.onSurfaceVariant
-                            .withValues(alpha: 0.6),
+                            .withOpacity(0.6),
                       ),
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -131,7 +131,7 @@ class _TranscriptionDisplayWidgetState
                       style: AppTheme.lightTheme.textTheme.bodyMedium?.copyWith(
                         color: widget.transcription.isEmpty
                             ? AppTheme.lightTheme.colorScheme.onSurfaceVariant
-                                .withValues(alpha: 0.6)
+                                .withOpacity(0.6)
                             : AppTheme.lightTheme.colorScheme.onSurface,
                       ),
                     ),

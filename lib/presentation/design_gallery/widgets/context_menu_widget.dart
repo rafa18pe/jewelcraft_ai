@@ -37,7 +37,7 @@ class ContextMenuWidget extends StatelessWidget {
             padding: EdgeInsets.all(4.w),
             decoration: BoxDecoration(
               color: (isDarkMode ? AppTheme.primaryDark : AppTheme.primaryLight)
-                  .withValues(alpha: 0.1),
+                  .withOpacity(0.1),
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(12)),
             ),

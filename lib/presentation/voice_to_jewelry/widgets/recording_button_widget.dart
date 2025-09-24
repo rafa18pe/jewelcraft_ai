@@ -112,9 +112,9 @@ class _RecordingButtonWidgetState extends State<RecordingButtonWidget>
                 gradient: widget.isProcessing
                     ? LinearGradient(
                         colors: [
-                          AppTheme.lightTheme.colorScheme.outline,
-                          AppTheme.lightTheme.colorScheme.outline
-                              .withValues(alpha: 0.7),
+                        AppTheme.lightTheme.colorScheme.outline,
+                        AppTheme.lightTheme.colorScheme.outline
+                            .withOpacity(0.7),
                         ],
                       )
                     : LinearGradient(
@@ -127,7 +127,7 @@ class _RecordingButtonWidgetState extends State<RecordingButtonWidget>
                     ? [
                         BoxShadow(
                           color: AppTheme.lightTheme.colorScheme.primary
-                              .withValues(alpha: 0.3),
+                              .withOpacity(0.3),
                           blurRadius: 20 * _pulseAnimation.value,
                           spreadRadius: 5 * _pulseAnimation.value,
                         ),

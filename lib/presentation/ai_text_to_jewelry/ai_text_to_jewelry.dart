@@ -211,7 +211,7 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       color: AppTheme.lightTheme.colorScheme.outline
-                          .withValues(alpha: 0.1),
+                          .withOpacity(0.1),
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
@@ -257,11 +257,11 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
                             horizontal: 3.w, vertical: 1.h),
                         decoration: BoxDecoration(
                           color: AppTheme.lightTheme.colorScheme.primary
-                              .withValues(alpha: 0.1),
+                              .withOpacity(0.1),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
                             color: AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.3),
+                                .withOpacity(0.3),
                           ),
                         ),
                         child: Text(
@@ -433,7 +433,7 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
                                           ?.copyWith(
                                         color: AppTheme.lightTheme.colorScheme
                                             .onSurfaceVariant
-                                            .withValues(alpha: 0.7),
+                                            .withOpacity(0.7),
                                       ),
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(16),
@@ -536,7 +536,7 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
                             backgroundColor: _canGenerate
                                 ? AppTheme.lightTheme.colorScheme.primary
                                 : AppTheme.lightTheme.colorScheme.outline
-                                    .withValues(alpha: 0.3),
+                                    .withOpacity(0.3),
                             foregroundColor: _canGenerate
                                 ? AppTheme.lightTheme.colorScheme.onPrimary
                                 : AppTheme
@@ -643,11 +643,11 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
                           padding: EdgeInsets.all(4.w),
                           decoration: BoxDecoration(
                             color: AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.05),
+                                .withOpacity(0.05),
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color: AppTheme.lightTheme.colorScheme.primary
-                                  .withValues(alpha: 0.2),
+                                  .withOpacity(0.2),
                             ),
                           ),
                           child: Column(
@@ -721,7 +721,7 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color:
-                AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+                AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
           ),
         ),
         child: Column(
@@ -731,7 +731,7 @@ class _AiTextToJewelryState extends State<AiTextToJewelry> {
               height: 12.w,
               decoration: BoxDecoration(
                 color: AppTheme.lightTheme.colorScheme.primary
-                    .withValues(alpha: 0.1),
+                    .withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: Center(

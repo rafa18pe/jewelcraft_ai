@@ -51,7 +51,7 @@ class _DrawingCanvasWidgetState extends State<DrawingCanvasWidget> {
               child: CustomPaint(
                 painter: GridPainter(
                   gridColor: AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
                 ),
               ),
             ),
