@@ -28,6 +28,13 @@ jobs:
         with:
           flutter-version: '3.24.3'
           channel: 'stable'
+          cache: true
+
+      - name: Install Android NDK 26.1.10909125
+        uses: android-actions/setup-android@v3
+        with:
+          packages: |-
+            ndk;26.1.10909125
 
       - name: Flutter pub get
         run: flutter pub get
@@ -41,6 +48,7 @@ jobs:
           name: android-apk
           path: |
             build/app/outputs/flutter-apk/app-*-release.apk
+          if-no-files-found: error
 
       - name: Print artifact paths
         run: ls -alh build/app/outputs/flutter-apk || true

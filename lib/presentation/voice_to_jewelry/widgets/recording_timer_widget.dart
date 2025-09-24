@@ -37,7 +37,7 @@ class RecordingTimerWidget extends StatelessWidget {
             height: 6,
             decoration: BoxDecoration(
               color: AppTheme.lightTheme.colorScheme.outline
-                  .withValues(alpha: 0.3),
+                  .withOpacity(0.3),
               borderRadius: BorderRadius.circular(3),
             ),
             child: FractionallySizedBox(
@@ -79,7 +79,7 @@ class RecordingTimerWidget extends StatelessWidget {
                 ' / ${_formatDuration(maxDuration)}',
                 style: AppTheme.lightTheme.textTheme.bodySmall?.copyWith(
                   color: AppTheme.lightTheme.colorScheme.onSurfaceVariant
-                      .withValues(alpha: 0.7),
+                      .withOpacity(0.7),
                 ),
               ),
             ],

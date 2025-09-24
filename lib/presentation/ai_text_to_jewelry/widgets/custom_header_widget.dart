@@ -42,7 +42,7 @@ class CustomHeaderWidget extends StatelessWidget {
                   padding: EdgeInsets.all(2.w),
                   decoration: BoxDecoration(
                     color: AppTheme.lightTheme.colorScheme.outline
-                        .withValues(alpha: 0.1),
+                        .withOpacity(0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: CustomIconWidget(
@@ -67,7 +67,7 @@ class CustomHeaderWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                 decoration: BoxDecoration(
                   color: AppTheme.lightTheme.colorScheme.primary
-                      .withValues(alpha: 0.1),
+                      .withOpacity(0.1),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -98,7 +98,7 @@ class CustomHeaderWidget extends StatelessWidget {
               height: 0.5.h,
               decoration: BoxDecoration(
                 color: AppTheme.lightTheme.colorScheme.outline
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: FractionallySizedBox(

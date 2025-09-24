@@ -29,11 +29,11 @@ class MeasurementOverlayWidget extends StatelessWidget {
             padding: EdgeInsets.all(2.w),
             decoration: BoxDecoration(
               color: AppTheme.lightTheme.colorScheme.surface
-                  .withValues(alpha: 0.9),
+                  .withOpacity(0.9),
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1),
+                  color: Colors.black.withOpacity(0.1),
                   blurRadius: 4,
                   offset: const Offset(0, 2),
                 ),
@@ -64,11 +64,11 @@ class MeasurementOverlayWidget extends StatelessWidget {
         padding: EdgeInsets.all(3.w),
         decoration: BoxDecoration(
           color:
-              AppTheme.lightTheme.colorScheme.surface.withValues(alpha: 0.95),
+              AppTheme.lightTheme.colorScheme.surface.withOpacity(0.95),
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
+              color: Colors.black.withOpacity(0.1),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -97,7 +97,7 @@ class MeasurementOverlayWidget extends StatelessWidget {
                             horizontal: 2.w, vertical: 0.5.h),
                         decoration: BoxDecoration(
                           color: AppTheme.lightTheme.primaryColor
-                              .withValues(alpha: 0.1),
+                              .withOpacity(0.1),
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
@@ -135,7 +135,7 @@ class MeasurementOverlayWidget extends StatelessWidget {
                             style: AppTheme.lightTheme.textTheme.bodySmall
                                 ?.copyWith(
                               color: AppTheme.lightTheme.colorScheme.onSurface
-                                  .withValues(alpha: 0.7),
+                                  .withOpacity(0.7),
                             ),
                           ),
                           Text(

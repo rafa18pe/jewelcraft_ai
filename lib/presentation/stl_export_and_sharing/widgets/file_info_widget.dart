@@ -26,7 +26,7 @@ class FileInfoWidget extends StatelessWidget {
         color: AppTheme.lightTheme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+          color: AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
         ),
       ),
       child: Column(
@@ -66,7 +66,7 @@ class FileInfoWidget extends StatelessWidget {
                 width: 1,
                 height: 4.h,
                 color: AppTheme.lightTheme.colorScheme.outline
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
               ),
               Expanded(
                 child: _buildInfoItem(
@@ -83,7 +83,7 @@ class FileInfoWidget extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(3.w),
             decoration: BoxDecoration(
-              color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1),
+              color: AppTheme.lightTheme.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(

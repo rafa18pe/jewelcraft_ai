@@ -28,7 +28,7 @@ class ExportProgressWidget extends StatelessWidget {
         color: AppTheme.lightTheme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.3),
+          color: AppTheme.lightTheme.primaryColor.withOpacity(0.3),
         ),
       ),
       child: Column(
@@ -66,7 +66,7 @@ class ExportProgressWidget extends StatelessWidget {
           LinearProgressIndicator(
             value: progress,
             backgroundColor:
-                AppTheme.lightTheme.primaryColor.withValues(alpha: 0.2),
+                AppTheme.lightTheme.primaryColor.withOpacity(0.2),
             valueColor: AlwaysStoppedAnimation<Color>(
               AppTheme.lightTheme.primaryColor,
             ),
@@ -94,7 +94,7 @@ class ExportProgressWidget extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(3.w),
             decoration: BoxDecoration(
-              color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1),
+              color: AppTheme.lightTheme.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(

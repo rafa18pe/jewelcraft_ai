@@ -236,7 +236,7 @@ class _DrawingToolbarWidgetState extends State<DrawingToolbarWidget> {
         height: 5.h,
         decoration: BoxDecoration(
           color: isSelected
-              ? AppTheme.lightTheme.primaryColor.withValues(alpha: 0.2)
+              ? AppTheme.lightTheme.primaryColor.withOpacity(0.2)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
@@ -283,7 +283,7 @@ class _DrawingToolbarWidgetState extends State<DrawingToolbarWidget> {
         width: 15.w,
         height: 5.h,
         decoration: BoxDecoration(
-          color: color?.withValues(alpha: 0.1) ?? Colors.transparent,
+          color: color?.withOpacity(0.1) ?? Colors.transparent,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: color ?? AppTheme.lightTheme.colorScheme.outline,
@@ -314,7 +314,7 @@ class _DrawingToolbarWidgetState extends State<DrawingToolbarWidget> {
   void _selectTool(String tool) {
     setState(() => _selectedTool = tool);
     widget.drawingController.setStyle(
-      color: _selectedColor.withValues(alpha: _opacity),
+      color: _selectedColor.withOpacity(_opacity),
       strokeWidth: _brushSize,
     );
   }
@@ -326,7 +326,7 @@ class _DrawingToolbarWidgetState extends State<DrawingToolbarWidget> {
 
   void _updateDrawingStyle() {
     widget.drawingController.setStyle(
-      color: _selectedColor.withValues(alpha: _opacity),
+      color: _selectedColor.withOpacity(_opacity),
       strokeWidth: _brushSize,
     );
   }

@@ -110,7 +110,7 @@ class _ProcessingOverlayWidgetState extends State<ProcessingOverlayWidget>
       child: Container(
         width: double.infinity,
         height: double.infinity,
-        color: AppTheme.lightTheme.colorScheme.surface.withValues(alpha: 0.95),
+        color: AppTheme.lightTheme.colorScheme.surface.withOpacity(0.95),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -137,7 +137,7 @@ class _ProcessingOverlayWidgetState extends State<ProcessingOverlayWidget>
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.3),
+                                .withOpacity(0.3),
                             width: 2,
                           ),
                         ),
@@ -150,7 +150,7 @@ class _ProcessingOverlayWidgetState extends State<ProcessingOverlayWidget>
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: AppTheme.lightTheme.colorScheme.primary
-                            .withValues(alpha: 0.1),
+                            .withOpacity(0.1),
                       ),
                       child: Center(
                         child: CustomIconWidget(
@@ -208,7 +208,7 @@ class _ProcessingOverlayWidgetState extends State<ProcessingOverlayWidget>
                 height: 0.5.h,
                 decoration: BoxDecoration(
                   color: AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: FractionallySizedBox(

@@ -94,7 +94,7 @@ class SoundWavePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = primaryColor.withValues(alpha: isRecording ? 0.8 : 0.3)
+      ..color = primaryColor.withOpacity(isRecording ? 0.8 : 0.3)
       ..strokeWidth = 3
       ..strokeCap = StrokeCap.round;
 

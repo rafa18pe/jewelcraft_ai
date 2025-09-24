@@ -33,7 +33,7 @@ class AdvancedSettingsWidget extends StatelessWidget {
         color: AppTheme.lightTheme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.lightTheme.colorScheme.outline.withValues(alpha: 0.3),
+          color: AppTheme.lightTheme.colorScheme.outline.withOpacity(0.3),
         ),
       ),
       child: Column(
@@ -71,7 +71,7 @@ class AdvancedSettingsWidget extends StatelessWidget {
           if (isExpanded) ...[
             Divider(
               color: AppTheme.lightTheme.colorScheme.outline
-                  .withValues(alpha: 0.3),
+                  .withOpacity(0.3),
               height: 1,
             ),
             Container(
@@ -165,7 +165,7 @@ class AdvancedSettingsWidget extends StatelessWidget {
               onSelected: (_) =>
                   onPrintOrientationChanged(orientation['value'] as String),
               selectedColor:
-                  AppTheme.lightTheme.primaryColor.withValues(alpha: 0.2),
+                  AppTheme.lightTheme.primaryColor.withOpacity(0.2),
               checkmarkColor: AppTheme.lightTheme.primaryColor,
             );
           }).toList(),

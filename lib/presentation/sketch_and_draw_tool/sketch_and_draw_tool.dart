@@ -11,7 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sizer/sizer.dart';
-import 'package:universal_html/html.dart' as html
+import 'package:universal_html/html.dart'
     if (dart.library.io) 'package:jewelcraft_ai/web/html_stub.dart' as html;
 
 import '../../core/app_export.dart';
@@ -176,7 +176,7 @@ class _SketchAndDrawToolState extends State<SketchAndDrawTool>
           if (_isProcessingAI)
             Positioned.fill(
               child: Container(
-                color: Colors.black.withValues(alpha: 0.5),
+                color: Colors.black.withOpacity(0.5),
                 child: Center(
                   child: Container(
                     padding: EdgeInsets.all(6.w),
@@ -606,7 +606,7 @@ class _SketchAndDrawToolState extends State<SketchAndDrawTool>
                 border: Border(
                   bottom: BorderSide(
                     color: AppTheme.lightTheme.colorScheme.outline
-                        .withValues(alpha: 0.3),
+                        .withOpacity(0.3),
                   ),
                 ),
               ),
@@ -650,7 +650,7 @@ class _SketchAndDrawToolState extends State<SketchAndDrawTool>
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: AppTheme.lightTheme.colorScheme.outline
-                              .withValues(alpha: 0.3),
+                              .withOpacity(0.3),
                         ),
                       ),
                       child: Column(

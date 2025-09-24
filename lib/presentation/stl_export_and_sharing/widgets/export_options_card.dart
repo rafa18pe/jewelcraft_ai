@@ -38,8 +38,8 @@ class ExportOptionsCard extends StatelessWidget {
                 padding: EdgeInsets.all(3.w),
                 decoration: BoxDecoration(
                   color: isEnabled
-                      ? AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1)
-                      : Colors.grey.withValues(alpha: 0.1),
+                      ? AppTheme.lightTheme.primaryColor.withOpacity(0.1)
+                      : Colors.grey.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: CustomIconWidget(

@@ -69,11 +69,11 @@ class _ProcessingStatusWidgetState extends State<ProcessingStatusWidget>
             padding: EdgeInsets.all(4.w),
             decoration: BoxDecoration(
               color: AppTheme.lightTheme.colorScheme.primaryContainer
-                  .withValues(alpha: 0.1),
+                  .withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: AppTheme.lightTheme.colorScheme.primary
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
                 width: 1,
               ),
             ),
@@ -124,7 +124,7 @@ class _ProcessingStatusWidgetState extends State<ProcessingStatusWidget>
                   LinearProgressIndicator(
                     value: widget.progress,
                     backgroundColor: AppTheme.lightTheme.colorScheme.outline
-                        .withValues(alpha: 0.3),
+                        .withOpacity(0.3),
                     valueColor: AlwaysStoppedAnimation<Color>(
                       AppTheme.lightTheme.colorScheme.primary,
                     ),

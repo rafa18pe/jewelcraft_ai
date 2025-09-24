@@ -149,7 +149,7 @@ class ActionButtonsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: AppTheme.lightTheme.colorScheme.outline
-                  .withValues(alpha: 0.3),
+                  .withOpacity(0.3),
             ),
             boxShadow: [
               BoxShadow(
@@ -166,7 +166,7 @@ class ActionButtonsWidget extends StatelessWidget {
               color: isEnabled
                   ? (iconColor ?? AppTheme.lightTheme.colorScheme.onSurface)
                   : AppTheme.lightTheme.colorScheme.onSurface
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
             ),
           ),
         ),
@@ -189,14 +189,14 @@ class ActionButtonsWidget extends StatelessWidget {
           height: 12.w,
           decoration: BoxDecoration(
             color: isActive
-                ? AppTheme.lightTheme.primaryColor.withValues(alpha: 0.2)
+                ? AppTheme.lightTheme.primaryColor.withOpacity(0.2)
                 : AppTheme.lightTheme.colorScheme.surface,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: isActive
                   ? AppTheme.lightTheme.primaryColor
                   : AppTheme.lightTheme.colorScheme.outline
-                      .withValues(alpha: 0.3),
+                      .withOpacity(0.3),
             ),
             boxShadow: [
               BoxShadow(
