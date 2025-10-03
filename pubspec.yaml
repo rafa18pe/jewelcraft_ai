@@ -45,6 +45,11 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+dependency_overrides:
+  # Ensure Linux implementation matches the platform interface with startStream
+  record_linux: ^0.7.4
+  record_platform_interface: ^1.4.0
+
 flutter:
   uses-material-design: true
   assets:
