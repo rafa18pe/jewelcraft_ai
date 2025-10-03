@@ -37,7 +37,7 @@ dependencies:
   flutter_drawing_board: ^0.9.8
   image_picker: ^1.1.2
   file_picker: ^8.1.3
-  record: ^5.1.2
+  record: ^5.1.3
   #  speech_to_text: ^7.3.0
 
 dev_dependencies:
@@ -50,3 +50,5 @@ flutter:
   assets:
     - assets/
     - assets/images/
+dependency_overrides:
+  record_linux: ^0.7.4
