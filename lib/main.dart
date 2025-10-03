@@ -1,101 +1,73 @@
-import 'package:flutter/material.dart';
-import 'package:jewelcraft_ai/presentation/ai_text_to_jewelry/ai_text_to_jewelry_screen.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import 'dart:async';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:jewelcraft_ai/core/api_keys.dart';
+import 'package:sizer/sizer.dart';
 
-Future<void> _copyKeys() async {
+import 'core/app_export.dart';
+import 'widgets/custom_error_widget.dart';
+
+Future<File> _getLogFile() async {
   final dir = await getApplicationDocumentsDirectory();
-  final targetFile = File('${dir.path}/keys.json');
-  if (!await targetFile.exists()) {
-    final downloads = Directory('/storage/emulated/0/Download');
-    final sourceFile = File('${downloads.path}/keys.json');
-    if (await sourceFile.exists()) {
-      await targetFile.writeAsBytes(await sourceFile.readAsBytes());
-    } else {
-      // Si no está en Descargas, crea uno vacío para que no pete
-      await targetFile.writeAsString('{"alltick":"PON_CLAVE","replicate":"PON_CLAVE","gemini":"PON_CLAVE","meshy":"PON_CLAVE"}');
-    }
-  }
+  return File('${dir.path}/app_log.txt');
 }
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
-  await _copyKeys(); // ← aquí copiamos las claves
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+Future<void> _appendLog(String message) async {
+  try {
+    final file = await _getLogFile();
+    await file.writeAsString(
+      '[${DateTime.now().toIso8601String()}] $message\n',
+      mode: FileMode.append,
+      flush: true,
     );
-  }
+  } catch (_) {}
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  @override
-  State<HomePage> createState() => _HomePageState();
+  FlutterError.onError = (FlutterErrorDetails details) async {
+    Zone.current.handleUncaughtError(
+      details.exception,
+      details.stack ?? StackTrace.current,
+    );
+  };
+
+  runZonedGuarded<void>(() {
+    runApp(const JewelcraftApp());
+
+    // Defer non-critical I/O until after first frame.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _appendLog('App started');
+    });
+  }, (Object error, StackTrace stack) async {
+    await _appendLog('Uncaught error: $error\n$stack');
+  });
 }
 
-class _HomePageState extends State<HomePage> {
-  String _logText = 'Pulsa "Crear log" para ver qué pasa';
-
-  Future<void> _createLog() async {
-    final dir = await getApplicationDocumentsDirectory();
-    final logFile = File('${dir.path}/jewelcraft_log.txt');
-    try {
-      logFile.writeAsStringSync('=== HOME PAGE ===\n');
-      await _copyKeys();
-      logFile.writeAsStringSync('keys.json copiado\n', mode: FileMode.append);
-      final key = await ApiKeys.alltick;
-      logFile.writeAsStringSync('Alltick key leída: ${key.substring(0, 5)}...\n', mode: FileMode.append);
-      setState(() => _logText = 'Log creado sin errores');
-    } catch (e) {
-      logFile.writeAsStringSync('ERROR: $e\n', mode: FileMode.append);
-      setState(() => _logText = 'ERROR: $e');
-    }
-  }
+class JewelcraftApp extends StatelessWidget {
+  const JewelcraftApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'JewelCraft AI',
-              style: TextStyle(fontSize: 32, color: Colors.white),
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: _createLog,
-              child: const Text('Crear log'),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              _logText,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => AiTextToJewelryScreen())),
-              child: const Text('Texto → Joya'),
-            ),
-          ],
-        ),
-      ),
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        ErrorWidget.builder = (FlutterErrorDetails details) {
+          _appendLog('Flutter error widget: ${details.exceptionAsString()}');
+          return const CustomErrorWidget();
+        };
+
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Jewelcraft AI',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: ThemeMode.system,
+          initialRoute: AppRoutes.initial,
+          routes: AppRoutes.routes,
+        );
+      },
     );
   }
 }
